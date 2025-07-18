@@ -19,7 +19,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar>
+    <AppBar sx={{ position:'sticky' }} >
       <Box
         sx={{
           display: "flex",
