@@ -7,15 +7,18 @@ import { navbar } from "../constant/navbar";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import DrawerCom from "./DrawerCom";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [selectTab, setSelectTab] = useState(navbar[0].id);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate()
   const theme = useTheme();
   const md = useMediaQuery(theme.breakpoints.down("md"));
   const sm = useMediaQuery(theme.breakpoints.down("sm"));
-  const changeTab = (id) => {
-    setSelectTab(id);
+  const changeTab = (item) => {
+    setSelectTab(item.id);
+    navigate(item.path)
   };
 
   return (
@@ -58,7 +61,7 @@ function Navbar() {
               {navbar.map((item) => (
                 <Tab
                   value={item.id}
-                  onClick={() => changeTab(item.id)}
+                  onClick={() => changeTab(item)}
                   label={<strong>{item.title}</strong>}
                   key={item.id}
                   sx={{

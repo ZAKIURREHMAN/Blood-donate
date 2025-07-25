@@ -19,7 +19,7 @@ function FAQ() {
   };
 
   return (
-    <div className=" border-2 h-[500px] flex justify-center ">
+    <div className=" border-2 flex justify-center ">
       <div className=" border-2 h-full item w-[90%] ">
         <div className=" text-center text-[24px] " ><strong>FAQ</strong></div>
         {faqData?.map((item, index) => (

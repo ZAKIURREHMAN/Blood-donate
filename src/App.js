@@ -1,20 +1,22 @@
 import Navbar from "./components/Navbar";
-import BloodCart from "./screen/BloodCart";
-import FAQ from "./screen/FAQ";
-import Footer from "./screen/Footer";
-import Hero from "./screen/Hero";
-import Testimonial from "./screen/Testimonial";
+import HomeComponent from "./screen/HomeComponent";
+import Donate from "./screen/Donate";
+import { navbar } from "./constant/navbar";
+import NeedBlood from "./screen/NeedBlood";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import About from "./screen/About";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
     < Navbar />
-    <Hero/>
-    <BloodCart/>
-    <Testimonial/>
-    <FAQ/>
-    {/* <Footer/> */}
-    </>
+    <Routes>
+      < Route path={navbar[0].path} element={<HomeComponent/>}  />
+      < Route path={navbar[1].path} element={<NeedBlood/>}  />
+      < Route path={navbar[2].path} element={<Donate/>}  />
+      < Route path={navbar[3].path} element={<About/>}  />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
