@@ -3,133 +3,127 @@ import InputField from "../components/InputField";
 import { bloodGroups } from "../constant/blood_group";
 
 function Donate() {
-  const [stepper, SetStepper] = useState(1);
+  const [stepper, SetStepper] = useState(3);
+  const [selectBlood,setSelectBlood] = useState(1)
   return (
-    <div className=" border-2 border-green-900 flex justify-center items-center ">
-      <div className=" border-2 h-[400px] w-[400px] rounded-[30px] ">
-        <div className=" text-center text-[23px] mt-2 ">
-          <strong> Enter Your Details </strong>
+    <div className="border-2 border-green-900 h-screen flex justify-center items-center">
+      <div className="border-2 h-[500px] w-[400px] rounded-[30px] p-4 overflow-y-auto">
+        <div className="text-center text-[23px] mt-2">
+          <strong>Enter Your Details</strong>
         </div>
-        <label htmlFor="name">
-          <strong className=" text-[17px] ml-3 ">Name:</strong>
-        </label>
-        <InputField
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter Your Name"
-          className=" border-2 h-[40px] w-full  pl-2 border-gray-500 focus:border-gray-600 outline-none rounded-[20px] mb-3 "
-        />
 
-        <label htmlFor="number">
-          <strong className=" text-[17px] ml-3  ">Mobile Number:</strong>
-        </label>
-        <InputField
-          type="number"
-          id="number"
-          name="number"
-          placeholder="0300 xxxxxxx"
-          className=" border-2 h-[40px] w-full  pl-2 border-gray-500 focus:border-gray-600 outline-none rounded-[20px] mb-3 "
-        />
-
-        <label htmlFor="email">
-          <strong className=" text-[17px] ml-3 ">E-mail:</strong>
-        </label>
-        <InputField
-          type="text"
-          id="email"
-          name="email"
-          placeholder="example@gmail.com"
-          className=" border-2 h-[40px] w-full  pl-2 border-gray-500 focus:border-gray-600 outline-none rounded-[20px] "
-        />
-
-        <div className="mb-4">
-          <label
-            htmlFor="province"
-            className="block text-lg font-semibold text-gray-700 mb-2 ml-1"
-          >
-            Province
-          </label>
-
+        {stepper === 1 ? (
           <div>
-            <select
-              name="province"
-              id="province"
-              className=" border-2 h-[40px] w-full  mt-1 pl-2 border-gray-400 focus:border-gray-600 outline-none rounded-[20px] mb-3 "
-            >
-              <option value="punjab">Punjab</option>
-              <option value="sindh">Sindh</option>
-              <option value="balochistan">Balochistan</option>
-              <option value="kpk">Khyber Pakhtunkhwa</option>
-            </select>
+            <div className="mt-4">
+              <label htmlFor="name" className="block text-[17px] ml-2 font-semibold">
+                Name:
+              </label>
+              <InputField
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter Your Name"
+                className="border-2 h-[40px] w-full pl-2 border-gray-500 focus:border-gray-600 outline-none rounded-[20px]"
+              />
+            </div>
+
+            <div className="mt-4">
+              <label htmlFor="number" className="block text-[17px] ml-2 font-semibold">
+                Mobile Number:
+              </label>
+              <InputField
+                type="number"
+                id="number"
+                name="number"
+                placeholder="0300 xxxxxxx"
+                className="border-2 h-[40px] w-full pl-2 border-gray-500 focus:border-gray-600 outline-none rounded-[20px]"
+              />
+            </div>
+
+            <div className="mt-4">
+              <label htmlFor="email" className="block text-[17px] ml-2 font-semibold">
+                E-mail:
+              </label>
+              <InputField
+                type="text"
+                id="email"
+                name="email"
+                placeholder="example@gmail.com"
+                className="border-2 h-[40px] w-full pl-2 border-gray-500 focus:border-gray-600 outline-none rounded-[20px]"
+              />
+            </div>
           </div>
-        </div>
-
-        <div className="mb-4">
-          <label
-            htmlFor="district"
-            className="block text-lg font-semibold text-gray-700 mb-2 ml-1"
-          >
-            District
-          </label>
-
+        ) : stepper === 2 ? (
           <div>
-            <select
-              name="district"
-              id="district"
-              className="w-full  px-4 py-2 border-2 shadow-sm focus:outline-none border-gray-400 focus:border-gray-600 outline-none rounded-[20PX]  text-gray-700"
-            >
-              <option value="punjab">Punjab</option>
-              <option value="sindh">Sindh</option>
-              <option value="balochistan">Balochistan</option>
-              <option value="kpk">Khyber Pakhtunkhwa</option>
-            </select>
+            <div className="mt-4">
+              <label htmlFor="province" className="block text-[17px] ml-2 font-semibold">
+                Province:
+              </label>
+              <select
+                name="province"
+                id="province"
+                className="border-2 h-[40px] w-full pl-2 border-gray-500 focus:border-gray-600 outline-none rounded-[20px]"
+              >
+                <option value="punjab">Punjab</option>
+                <option value="sindh">Sindh</option>
+                <option value="balochistan">Balochistan</option>
+                <option value="kpk">Khyber Pakhtunkhwa</option>
+              </select>
+            </div>
+
+            <div className="mt-4">
+              <label htmlFor="district" className="block text-[17px] ml-2 font-semibold">
+                District:
+              </label>
+              <select
+                name="district"
+                id="district"
+                className="border-2 h-[40px] w-full pl-2 border-gray-500 focus:border-gray-600 outline-none rounded-[20px]"
+              >
+                <option value="punjab">Punjab</option>
+                <option value="sindh">Sindh</option>
+                <option value="balochistan">Balochistan</option>
+                <option value="kpk">Khyber Pakhtunkhwa</option>
+              </select>
+            </div>
+
+            <div className="mt-4">
+              <label htmlFor="location" className="block text-[17px] ml-2 font-semibold">
+                Your Current Location:
+              </label>
+              <InputField
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Township Butt Chowk Mateen Avenue 404Z"
+                className="border-2 h-[40px] w-full pl-2 border-gray-500 focus:border-gray-600 outline-none rounded-[20px]"
+              />
+            </div>          
           </div>
-        </div>
+        ) : stepper === 3 ? (
+          <div className="mt-4">
+            <div className="flex flex-wrap gap-5 justify-evenly w-full mt-2">
+              {bloodGroups.map((item) => (
+                <div className={`border-2 h-[80px] w-[80px]  `} key={item.id}>
+                  <img src={item.path} alt={item.name} />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
 
-        <label htmlFor="location">
-          <label className="block text-lg font-semibold text-gray-700 mb-2 ml-1  ">
-            Your Current Location:
-          </label>
-        </label>
-        <InputField
-          type="text"
-          id="location"
-          name="location"
-          placeholder="Township Butt Chowk Mateen Avenue 404Z"
-          className=" border-2 h-[40px] w-full  mt-1 pl-2 border-gray-400 focus:border-gray-600 outline-none rounded-[20px] mb-3 "
-        />
-
-
-
-        <div className=" border-2 border-green-950 flex mt-5 flex-wrap gap-5 justify-evenly w-full  " >
-          {
-            bloodGroups.map((item)=>(
-              <div className=" border-2 h-[90px] w-[90px] " key={item.id} >
-
-                <img src={item.path} alt={item.name} />
-              </div>
-            ))
-          }
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        <div className="flex justify-between items-center w-full px-4 py-2">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow">
+        <div className="flex justify-between items-center w-full mt-10 px-4 py-2">
+          <button
+            onClick={() => SetStepper(stepper > 1 ? stepper - 1 : 1)}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow"
+          >
             Previous
           </button>
 
-          <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow">
+          <button
+            onClick={() => SetStepper(stepper < 3 ? stepper + 1 : 3)}
+            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow"
+          >
             Next
           </button>
         </div>
