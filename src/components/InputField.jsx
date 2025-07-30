@@ -1,13 +1,13 @@
 import React from "react";
 
 
-const InputField = React.memo(function({type,name,className,id,placeholder}){
+const InputField = React.forwardRef(function({type,inputRef,name,className,id,placeholder,...rest},ref){
     return(
            <div>
-        < input type={type} name={name} className={className} id={id} placeholder={placeholder}  />
+        < input ref={ref} type={type} name={name} className={className} id={id} placeholder={placeholder} {...rest}  />
     </div>
     )
 
 } )
 
-export default InputField
+export default React.memo(InputField);

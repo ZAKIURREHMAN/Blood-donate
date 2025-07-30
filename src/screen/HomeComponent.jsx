@@ -4,6 +4,7 @@ import BloodCart from './BloodCart'
 import Testimonial from './Testimonial'
 import FAQ from './FAQ'
 import Footer from './Footer'
+import DevelopedBy from './DevelopedBy'
 
 function HomeComponent() {
   return (
@@ -13,6 +14,7 @@ function HomeComponent() {
         < Testimonial />
         < FAQ />
         < Footer />
+        <DevelopedBy/>
     </div>
   )
 }
